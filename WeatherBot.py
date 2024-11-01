@@ -32,7 +32,7 @@ def get_city(message):
             data = json.loads(res.text)
             
         except requests.exceptions.Timeout:
-            bot.send_message(callback.message.chat.id, "Что-то пошло не так, гидрометцентр не отвечает😣. Пожалуста попробуйте позже")
+            bot.send_message(message.chat.id, "Что-то пошло не так, гидрометцентр не отвечает😣. Пожалуста попробуйте позже")
         except:
             bot.send_message(message.chat.id, "Что-то пошло не так, пожалуйста попробуйте позже")
     except:
@@ -64,7 +64,7 @@ def get_city(message):
             w_gust = False
         visib_m = str(visib) + 'м'
     
-        bot.send_message(callback.message.chat.id,
+        bot.send_message(message.chat.id,
     f'Сейчас в {city}:\n{weather}({icon_weath})\nТемпература🌡️: {temp}°C\n(Ощущается: {feels}°)\nСкорость ветра💨: {w_speed}м/с\n(Порывы: {w_gust_mc if w_gust == True else "Незначительны"})\nДавление🕛: {pres}мм р.с\nВлажность💧: {humid}%\nВидимость: {visib_m if float(visib) <= 3000 else "Полноценная"}')
     
     else:
