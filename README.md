@@ -1,2 +1,2 @@
-# TeleBot
-INDI Studio: Poseidon
+# TeleBot: WeatherBot
+
